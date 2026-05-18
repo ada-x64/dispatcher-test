@@ -40,8 +40,8 @@ jobs:
             - name: Dispatch retries to consumers with elapsed windows
               env:
                   # DISPATCH_TOKEN is an org/repo PAT with `actions:write` on consumer
-          # repos (required to fire `gh workflow run` cross-repo). The default
-          # GITHUB_TOKEN cannot dispatch cross-repo, but is kept as a fallback
-          # so `actionlint` and local smoke tests work without a PAT configured.
-          GH_TOKEN: ${{ secrets.DISPATCH_TOKEN || secrets.GITHUB_TOKEN }}
+                  # repos (required to fire `gh workflow run` cross-repo). The default
+                  # GITHUB_TOKEN cannot dispatch cross-repo, but is kept as a fallback
+                  # so `actionlint` and local smoke tests work without a PAT configured.
+                  GH_TOKEN: ${{ secrets.DISPATCH_TOKEN || secrets.GITHUB_TOKEN }}
               run: scripts/dispatch-retries.sh
